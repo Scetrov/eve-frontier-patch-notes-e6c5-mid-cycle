@@ -1,25 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-@font-face {
-  font-family: 'Diskete Mono';
-  src: url('./assets/fonts/disket-mono-bold.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Disket+Mono:wght@400;600&display=swap');
 
 :root {
-  --bg-color: #0d0d10;
-  --surface-color: #1a1a20;
-  --surface-hover: #26262e;
-  --text-primary: #e6e6e6;
-  --text-secondary: #a0a0ab;
-  --accent-color: #FF7400;
-  --accent-glow: rgba(255, 116, 0, 0.2);
-  --border-color: #2e2e36;
-  
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Diskete Mono', monospace;
+  --eve-bg-base: #000000;
+  --eve-bg-panel: #0A0A0A;
+  --eve-accent-orange: #FF4500;
+  --eve-accent-red: #FF0000;
+  --eve-text-main: #F5F5F5;
+  --eve-text-muted: #8C8C8C;
+  --eve-text-inverse: #000000;
+  --eve-border-default: #333333;
+  --eve-border-light: #555555;
+
+  /* Legacy aliases for existing components */
+  --bg-color: #000000;
+  --surface-color: #0A0A0A;
+  --surface-hover: #111111;
+  --text-primary: #F5F5F5;
+  --text-secondary: #8C8C8C;
+  --accent-color: #FF4500;
+  --accent-glow: rgba(255, 69, 0, 0.3);
+  --border-color: #333333;
+
+  --font-mono: 'Space Mono', monospace;
+  --font-heading: 'Disket Mono SemiBold', sans-serif;
+  --font-body: 'Disket Mono', monospace;
 }
 
 * {
@@ -35,14 +40,16 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
-  color: var(--accent-color);
+  color: var(--text-main);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 a {
@@ -65,7 +72,6 @@ a:hover {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--surface-hover);
-  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);

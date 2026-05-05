@@ -168,7 +168,7 @@ const CustomLegend = ({ payload }) => {
 };
 
 const FeatureCard = ({ icon: Icon, title, description, children, delay, fullWidth }) => (
-  <div className={`feature-card ${fullWidth ? 'full-width' : ''}`} style={{ animationDelay: `${delay}ms` }}>
+  <div className={`feature-card bracketed ${fullWidth ? 'full-width' : ''}`} style={{ animationDelay: `${delay}ms` }}>
     <div className="feature-icon-wrapper">
       <Icon className="feature-icon" size={28} />
     </div>
@@ -227,7 +227,7 @@ function App() {
       <div className="content-grid grid-2">
         
         {/* DRONE RANGE CHART */}
-        <div className="chart-card">
+        <div className="chart-card bracketed">
           <div className="chart-header">
             <Crosshair className="chart-icon" />
             <h3>Feral Drones Combat Roles (km)</h3>
@@ -249,7 +249,7 @@ function App() {
         </div>
 
         {/* WEAPON RANGE CHART */}
-        <div className="chart-card">
+        <div className="chart-card bracketed">
           <div className="chart-header">
             <ShieldAlert className="chart-icon" />
             <h3>Weapon Engagement Ranges (km)</h3>
@@ -275,7 +275,7 @@ function App() {
       <div className="content-grid grid-2">
         
         {/* HULL PRODUCTION CHART */}
-        <div className="chart-card full-width-chart">
+        <div className="chart-card full-width-chart bracketed">
           <div className="chart-header">
             <Factory className="chart-icon" />
             <h3>Frigate Hull Runtimes (Seconds)</h3>
@@ -297,7 +297,7 @@ function App() {
         </div>
 
         {/* MODULE FITTING CHART */}
-        <div className="chart-card full-width-chart">
+        <div className="chart-card full-width-chart bracketed">
           <div className="chart-header">
             <Wrench className="chart-icon" />
             <h3>Module Power Grid (PG) Requirements</h3>
@@ -319,7 +319,7 @@ function App() {
         </div>
 
         {/* BUILD REQUIREMENTS CHART */}
-        <div className="chart-card full-width-chart">
+        <div className="chart-card full-width-chart bracketed">
           <div className="chart-header">
             <Factory className="chart-icon" />
             <h3>Build Requirements Comparison</h3>
@@ -347,7 +347,7 @@ function App() {
         </div>
 
         {/* AMMO & FUEL RUNTIMES */}
-        <div className="chart-card full-width-chart">
+        <div className="chart-card full-width-chart bracketed">
           <div className="chart-header">
             <Activity className="chart-icon" />
             <h3>Ammo, Fuel & Coolant Runtimes (Seconds)</h3>
@@ -369,7 +369,7 @@ function App() {
         </div>
 
         {/* PLASMA COSTS */}
-        <div className="chart-card full-width-chart">
+        <div className="chart-card full-width-chart bracketed">
           <div className="chart-header">
             <ShieldAlert className="chart-icon" />
             <h3>Plasma Ammo Input Costs</h3>
@@ -391,7 +391,7 @@ function App() {
         </div>
 
         {/* REFINERY SCALING */}
-        <div className="chart-card full-width-chart">
+        <div className="chart-card full-width-chart bracketed">
           <div className="chart-header">
             <Factory className="chart-icon" />
             <h3>Refining Yields & Scaling</h3>
@@ -418,16 +418,19 @@ function App() {
           icon={Orbit} 
           title="Microrift Rebalance" 
           description="Microrifts have been rebalanced: on average more valuable in fuel quantity, but contain less fuel and deplete faster in populated areas. Seek out crude further afield."
+          delay={100}
         />
         <FeatureCard 
           icon={Activity} 
           title="Resource Yields" 
           description="Fine Young Crude and Fine Old Crude refining yields of Eupraxite and Sophrogon doubled (from 3 to 6 per run). Heavy Refinery scaling efficiency fixed."
+          delay={200}
         />
         <FeatureCard 
           icon={Volume2} 
           title="Audio Overhaul" 
           description="Distant gunfire is now more audible. Shots that miss produce a flyby effect. Jump drive spooling sounds fixed. Scan sounds adjusted."
+          delay={300}
         />
       </div>
 

@@ -1,15 +1,15 @@
 :root {
-  --bg-color: #07070a;
-  --surface-color: rgba(26, 26, 32, 0.6);
-  --surface-hover: rgba(38, 38, 46, 0.8);
-  --text-primary: #f0f0f5;
-  --text-secondary: #9a9aab;
-  --accent-color: #FF7400;
-  --accent-glow: rgba(255, 116, 0, 0.3);
-  --border-color: rgba(255, 116, 0, 0.15);
+  --bg-color: #000000;
+  --surface-color: #0A0A0A;
+  --surface-hover: #111111;
+  --text-primary: #F5F5F5;
+  --text-secondary: #8C8C8C;
+  --accent-color: #FF4500;
+  --accent-glow: rgba(255, 69, 0, 0.3);
+  --border-color: #333333;
   
-  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Diskete Mono', monospace;
+  --font-body: 'Disket Mono', monospace;
+  --font-heading: 'Disket Mono SemiBold', sans-serif;
 }
 
 body {
@@ -17,10 +17,8 @@ body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: var(--font-body);
+  font-size: 14px;
   overflow-x: hidden;
-  background-image: 
-    radial-gradient(circle at 15% 50%, rgba(255, 116, 0, 0.03), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(255, 116, 0, 0.04), transparent 25%);
 }
 
 .infographic-container {
@@ -60,11 +58,10 @@ body {
   font-family: var(--font-heading);
   font-size: 4rem;
   margin: 0 0 1rem 0;
-  color: #fff;
-  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  text-shadow: 0 0 30px var(--accent-glow), 0 0 10px rgba(255,255,255,0.5);
-  font-weight: normal; /* Fix for font loading */
+  font-weight: 600;
 }
 
 .hero-subtitle {
@@ -112,10 +109,7 @@ body {
 .feature-card {
   background: var(--surface-color);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 1.5rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 24px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   display: flex;
@@ -126,17 +120,16 @@ body {
 .feature-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px -10px var(--accent-glow);
-  border-color: rgba(255, 116, 0, 0.4);
+  border-color: var(--accent-color);
 }
 
 .feature-icon-wrapper {
-  background: rgba(255, 116, 0, 0.1);
+  background: rgba(255, 69, 0, 0.1);
   padding: 0.75rem;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 116, 0, 0.2);
+  border: 1px solid rgba(255, 69, 0, 0.2);
 }
 
 .feature-icon {
@@ -146,7 +139,7 @@ body {
 .feature-content h3 {
   font-family: var(--font-heading);
   font-size: 1.1rem;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0 0 0.5rem 0;
   letter-spacing: 0.05em;
 }
@@ -162,10 +155,7 @@ body {
 .chart-card {
   background: var(--surface-color);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
   padding: 2rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
@@ -183,7 +173,7 @@ body {
 .chart-header h3 {
   font-family: var(--font-heading);
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--text-primary);
   margin: 0;
 }
 
@@ -200,22 +190,60 @@ body {
 .chart-wrapper {
   background: rgba(0,0,0,0.2);
   padding: 1rem;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 116, 0, 0.05);
+  border: 1px solid var(--border-color);
 }
 
 .custom-tooltip {
-  background: rgba(13, 13, 16, 0.95);
+  background: rgba(10, 10, 10, 0.95);
   border: 1px solid var(--border-color);
   padding: 1rem;
-  border-radius: 4px;
-  backdrop-filter: blur(8px);
 }
 .tooltip-label {
   font-family: var(--font-heading);
-  color: #fff;
+  color: var(--text-primary);
   margin: 0 0 0.5rem 0;
   font-size: 0.9rem;
+}
+
+/* Corner Brackets / Targeting Reticle */
+.bracketed {
+  position: relative;
+}
+
+.bracketed::before,
+.bracketed::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  pointer-events: none;
+}
+
+.bracketed::before {
+  background:
+    /* Top-left: horizontal bar */
+    linear-gradient(to right, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) top left / 100% 2px no-repeat,
+    /* Top-left: vertical bar */
+    linear-gradient(to bottom, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) top left / 2px 100% no-repeat,
+    /* Bottom-right: horizontal bar */
+    linear-gradient(to left, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) bottom right / 100% 2px no-repeat,
+    /* Bottom-right: vertical bar */
+    linear-gradient(to top, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) bottom right / 2px 100% no-repeat;
+}
+
+.bracketed::after {
+  background:
+    /* Top-right: horizontal bar */
+    linear-gradient(to left, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) top right / 100% 2px no-repeat,
+    /* Top-right: vertical bar */
+    linear-gradient(to bottom, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) top right / 2px 100% no-repeat,
+    /* Bottom-left: horizontal bar */
+    linear-gradient(to right, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) bottom left / 100% 2px no-repeat,
+    /* Bottom-left: vertical bar */
+    linear-gradient(to top, var(--bracket-color, #666666) 0, var(--bracket-color, #666666) 12px, transparent 12px) bottom left / 2px 100% no-repeat;
+}
+
+.bracketed:hover {
+  --bracket-color: var(--accent-color);
 }
 
 /* Fixes Grid */
@@ -231,7 +259,6 @@ body {
   gap: 1rem;
   background: rgba(255,255,255,0.02);
   padding: 1rem;
-  border-radius: 4px;
   border-left: 2px solid var(--accent-color);
 }
 
